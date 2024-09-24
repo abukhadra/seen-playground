@@ -23,7 +23,7 @@
     "clean": "rm -rf ./dist && rm -rf ./splay.js && rm -rf ./node_modules"
   },
   "dependencies": {
-    "seen-editor" : "file:../seen-editor"
+    "seen-editor" : "https://github.com/abukhadra/seen-editor"
   },
   "author": "Mustafa Abukhadra",
   "license": "MIT",
