@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <style>
+            * { box-sizing: border-box; }
+            html, body, #playground { 
+                height: 100%; 
+                width: 100%; 
+                margin: 0; 
+                padding: 0; 
+            }
+            body { background-color: rgb(139, 60, 60); }
+        </style>
+    </head>
+    <body>
+        <script type="module">
+            import SeenPlayground from '../splay.js'
+                const id = "playground";
+                const parent = document.body
+                SeenPlayground( id, parent, {
+                    lang: 'ar',
+                    theme: 'dark'
+                })
+        </script>
+    </body>
+</html>

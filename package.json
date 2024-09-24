@@ -1,0 +1,33 @@
+{
+  "name": "seen-playground",
+  "version": "0.1.1",
+  "keywords" : [
+    "seen" , 
+    "programming language", 
+    "editor",
+    "playground",
+    "س" , 
+    "لغة برمجة", 
+    "محرر" ,
+    "حقل التجارب"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abukhadra/seen-playground.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm install && npm run html2JS",
+    "html2JS": "vite build && node html2JS.js && rm -rf ./dist/src",
+    "ex-ar": "npm run build && npx http-server --cors -o ./examples/playground-ar.html",
+    "ex": "npm run build && npx http-server --cors -o ./examples/playground.html",
+    "clean": "rm -rf ./dist && rm -rf ./splay.js && rm -rf ./node_modules"
+  },
+  "dependencies": {
+    "seen-editor" : "file:../seen-editor"
+  },
+  "author": "Mustafa Abukhadra",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4"
+  }
+}
