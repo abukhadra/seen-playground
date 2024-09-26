@@ -43,6 +43,8 @@ Object.keys(userOpts).forEach(k => {
 let lang = opts.lang 
 let EXAMPLES 
 
+let theme = opts.theme
+
 const inherited = 'rgb(200,150,106)'       
 
 // const EDITOR_SRCDOC = SeenEditor(lang, document.querySelector('#editor'), {lang: lang})
@@ -76,7 +78,7 @@ function selectLang() {
     editor_container.replaceChildren()
     SeenEditor("seen-editor", editor_container, {
         lang: lang,
-        theme: opts.theme
+        theme: theme
     })
     setLangOptions(lang)
     setExamples(lang)
@@ -113,6 +115,7 @@ function selectExample() {
 }
 
 export function setEditorTheme(name) {
+    theme = name
     getEditorWin().setTheme(name)
 }
 
