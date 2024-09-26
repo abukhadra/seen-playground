@@ -30,9 +30,6 @@ let opts = {
     }
 }
 
-const editor = document.querySelector('#editor-container> #seen-editor')
-const editor_win = editor.contentWindow || editor
-
 // FIXME: this does not handle the `examples` key properly, need to make a recursive version! 
 Object.keys(userOpts).forEach(k => { 
     if (!USER_ALLOWED_OPTS.includes(k)) { throw new Error('invalid option: ' + k) }
@@ -43,10 +40,7 @@ Object.keys(userOpts).forEach(k => {
   if(!opts.examples.ar) { opts.examples.ar = SAMPLE_EXAMPLE_AR}
   if(!opts.examples.en) { opts.examples.en = SAMPLE_EXAMPLE_EN}
 
-
 let lang = opts.lang 
-
-
 let EXAMPLES 
 
 const inherited = 'rgb(200,150,106)'       
@@ -111,14 +105,20 @@ function setExamples(lang) {
 function selectExample() {
     let k = document.querySelector('#examples').value 
     const code = EXAMPLES[k][1]
-    editor_win.setEditorValue(code)
-    editor_win.hidePreview()
-    editor_win.hideRightSide()
-    editor_win.resetOutput()
+    const win = getEditorWin()
+    win.setEditorValue(code)
+    win.hidePreview()
+    win.hideRightSide()
+    win.resetOutput()
 }
 
 export function setEditorTheme(name) {
-    editor_win.setTheme(name)
+    getEditorWin().setTheme(name)
+}
+
+function getEditorWin() {
+    const editor = document.querySelector('#editor-container> #seen-editor')
+    return editor.contentWindow || editor    
 }
 
 document.querySelector('#lang').addEventListener('change', () => selectLang());
