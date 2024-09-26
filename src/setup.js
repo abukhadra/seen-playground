@@ -30,6 +30,9 @@ let opts = {
     }
 }
 
+const editor = document.querySelector('#editor-container> #seen-editor')
+const editor_win = editor.contentWindow || editor
+
 // FIXME: this does not handle the `examples` key properly, need to make a recursive version! 
 Object.keys(userOpts).forEach(k => { 
     if (!USER_ALLOWED_OPTS.includes(k)) { throw new Error('invalid option: ' + k) }
@@ -108,8 +111,6 @@ function setExamples(lang) {
 function selectExample() {
     let k = document.querySelector('#examples').value 
     const code = EXAMPLES[k][1]
-    const editor = document.querySelector('#editor-container> #seen-editor')
-    const editor_win = editor.contentWindow || editor
     editor_win.setEditorValue(code)
     editor_win.hidePreview()
     editor_win.hideRightSide()
