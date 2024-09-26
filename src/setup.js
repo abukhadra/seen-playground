@@ -1,5 +1,4 @@
-// import {SeenEditor} from "../lib/sedit.js"
-import {SeenEditor} from "seen-editor/seditor.js"
+import {SeenEditor} from "/lib/sedit/v0.1.3/sedit.js"
 
 const USER_ALLOWED_OPTS = ['lang', 'theme', 'examples']
 

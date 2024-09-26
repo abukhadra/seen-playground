@@ -1,6 +1,6 @@
 {
   "name": "seen-playground",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "keywords" : [
     "seen" , 
@@ -17,15 +17,14 @@
     "url": "git+https://github.com/abukhadra/seen-playground.git"
   },
   "scripts": {
-    "preinstall" : "npm run clean",
-    "prepare" : "vite build",
-    "postprepare" : "node run html2JS.js",
-    "clean": "rm -rf ./dist && rm -rf ./splay.js && rm -rf ./node_modules",
-    "ex-ar": "npx http-server --cors -o ./examples/playground-ar.html",
-    "ex": "npx http-server --cors -o ./examples/playground.html"
-  },
-  "dependencies": {
-    "seen-editor" : "github:abukhadra/seen-editor"
+    "prerelease": "npm i",
+    "release" : "vite build",
+    "postrelease" : "node ./lib/release/html2JS.js && node ./lib/releaes/banner.js",
+    "preinstall" : "npm run clean-out",
+    "clean": "npm run clean-out && rm -rf ./node_modules  && rm -rf ./package-lock.json",
+    "clean-out" : "rm -rf ./dist",
+    "ex": "npx http-server --cors -o ./examples/playground.html",
+    "ar-ex": "npx http-server --cors -o ./examples/ar-playground.html"
   },
   "author": "Mustafa Abukhadra",
   "license": "MIT",
