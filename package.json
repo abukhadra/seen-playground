@@ -17,7 +17,7 @@
     "url": "git+https://github.com/abukhadra/seen-playground.git"
   },
   "imports": {
-    "#seen-editor/*": "/lib/seen-editor/sedit.js"
+    "#seen-editor/*": "/lib/sedit.js"
   },
   "scripts": {
     "prerelease": "npm i",
