@@ -20,6 +20,9 @@
     "#seen-editor/*": "/lib/sedit.js"
   },
   "scripts": {
+    "predevrelease": "npm i",
+    "devreleases" : "vite build",
+    "postdevrelease" : "node ./lib/release/html2JS.js  && rm -rf ./dist/src && node ./lib/release/banner.js",
     "prerelease": "npm i",
     "release" : "vite build",
     "postrelease" : "node ./lib/release/html2JS.js  && rm -rf ./dist/src && node ./lib/release/banner.js",
